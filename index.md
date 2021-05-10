@@ -1,1 +1,1 @@
-https://github.com/andreaenvall/Flickr_Api.github.io.git
+https://andreaenvall.github.io/Flickr_Api.github.io/index.html
