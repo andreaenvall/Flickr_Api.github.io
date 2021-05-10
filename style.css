@@ -1,0 +1,188 @@
+:root{
+    font-family: 'Poppins', sans-serif;
+
+}
+#gallary{
+    padding: 0 auto;
+    display: flex;
+    align-items: flex-start;
+    padding: 0.2rem;
+    max-width: 1300px;
+    height: auto;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    
+}
+.search{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image:url("pexels-vittorio-staffolani-655674.jpg");
+    height: 500px;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    color: rgb(179, 179, 179);
+    padding-top: 2rem;
+}
+.pictures{
+    
+    padding: 0.2rem;
+    max-width: 240px;
+    max-height: 200px;
+    cursor: pointer;
+    
+}
+.pictures:hover {
+	-webkit-transform: scale(1.1);
+	transform: scale(1.1);
+}
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1;
+    padding-top: 100px; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.9);
+}
+.modal-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+}
+.close {
+    color: white;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.BigImg{
+    display: none;
+    
+}
+.BigImg > img {
+    border:  none;
+    border-radius: 8px;
+    margin-bottom: -4px;
+}
+
+input[type=text], select {
+
+max-width: 500px;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+input[type=submit] {
+max-width: 500px;
+width: 100%;
+background-color: #95349e;
+color: white;
+padding: 14px 20px;
+margin: 8px 0;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+}
+
+input[type=submit]:hover {
+background-color: #5b1364;
+}
+
+.button_next{
+    display: flex;
+    padding: auto;
+    align-items: center;
+    justify-content: center;
+    
+    
+    
+}
+.prev, .next {
+    background-color: #86178a;
+    color: white;
+    padding: 0.7rem;
+    border-radius: 2rem;
+    margin: 0.3rem;
+    font-size: 0.75rem;
+  }
+  .prev:hover, .next:hover{
+    background-color: #5b1364;
+    font-size: 0.8rem;
+  }
+  
+  h1{
+      font-size: 2.2rem;
+  }
+
+  #popup {
+    display: none; 
+    position: fixed; 
+    z-index: 1;
+    padding-top: 100px; 
+    left: 25%;
+    top: 25%;
+    width: 100%;
+    max-width: 700px; 
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.719);
+    animation-name: example;
+    animation-duration: 7s;
+    display: none;
+    color: white;
+  }
+  
+  @keyframes example {
+    0%   {background-color: rgba(0, 0, 0, 0.096);
+    color: rgba(255, 255, 255, 0.123);}
+    25%  {background-color: rgba(0, 0, 0, 0.349); color: rgba(255, 255, 255, 0.349);}
+    50%  {background-color: rgba(0, 0, 0, 0.658); color: rgba(255, 255, 255, 0.575);}
+    100% {background-color: rgba(0, 0, 0, 0.719); color: rgba(255, 255, 255, 0.918);}
+  }
+
+  #popup div{
+    width: 100%;
+    margin: 1rem 0;
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border-radius: 3px;
+
+  }
+  #popup a{
+    text-decoration: none;
+    border: 1.5px solid black;
+    border-radius: 3px;
+    color: black;
+    font-size: 0.8rem;
+    display: inline-block;
+    margin: 0.2rem;
+    padding: 0.2rem 1rem;
+    box-sizing: border-box;
+    text-transform: uppercase;
+    color: rgba(194, 194, 194, 0.829);
+    border-color: rgba(194, 194, 194, 0.829);
+  }
+  #popup p{
+      text-align: center;
+      font-size: 1.4rem;
+  }
+  
+  
+

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    
+    <section class="search">
+         <h1>Search for your insperation!</h1>
+         <p>Join the Flickr community, home to tens of billions of photos and 2 million groups.</p>
+    <form id="myForm" method="GET">
+        <input type="text" id="input" name="input" placeholder="Search here">
+    </form><br>
+
+            <input type="submit" value="Search images" class="btn">
+    </section>
+
+    <section id="gallary">
+
+        
+    </section>
+    <section class="button_next">
+        <a class="prev" onclick="PrevPage()">&laquo; Previous</a>
+        <a class="next" onclick="NextPage()">Next &raquo;</a>
+    </section>
+
+    <div id="myModal"class="modal">
+        <!-- Modal content -->
+        <div class="modal-content" id="modal-content">
+          <span class="close" onclick="CloseImg()">&times;</span>
+          
+        </div>
+      
+      </div>
+      <section id="popup">
+        <span class="close" onclick="ClosePopUp()">&times;</span>
+        <div>
+          <h2>Hey you!</h2>
+          <p>Would you like to see </br> more funny programming projects?</p>
+          <a href="https://github.com/andreaenvall">Press here</a>
+        </div>
+      </section>
+    
+
+</body>
+<script src="base.js"></script>
+
+</html>
