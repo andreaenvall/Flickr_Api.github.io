@@ -9,7 +9,7 @@ async function ApiSearch(){
     images[0].parentNode.removeChild(images[0]);}
 
   let searchFor = document.forms["myForm"]["input"].value;
-  const response = await fetch("https://api.flickr.com/services/rest?method=flickr.photos.search&api_key=8f0ae8840db405a70f58e25bd6cea2dd&text=" + searchFor + "&per_page=50&page=" + pagecounter + "&format=json&nojsoncallback=1")
+  const response = await fetch("https://api.flickr.com/services/rest?method=flickr.photos.search&api_key=8f0ae8840db405a70f58e25bd6cea2dd&text=" + searchFor + "&per_page=30&page=" + pagecounter + "&format=json&nojsoncallback=1")
   const data = await response.json()
   console.log(data.photos);
 
