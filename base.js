@@ -1,16 +1,22 @@
 const btn = document.querySelector(".btn")
 let ImgIndex = 0;
-btn.addEventListener("click", async function(){
+let pagecounter = 1;
+ApiSearch();
 
-  //const dlt = document.getElementsByTagName("img")
-  var images = document.getElementsByTagName('img');
+async function ApiSearch(){
+    var images = document.getElementsByTagName('img');
     while(images.length > 0) {
     images[0].parentNode.removeChild(images[0]);}
 
   let searchFor = document.forms["myForm"]["input"].value;
-  const response = await fetch("https://api.flickr.com/services/rest?method=flickr.photos.search&api_key=8f0ae8840db405a70f58e25bd6cea2dd&text=" + searchFor + "&per_page=80&page=1&format=json&nojsoncallback=1")
+  const response = await fetch("https://api.flickr.com/services/rest?method=flickr.photos.search&api_key=8f0ae8840db405a70f58e25bd6cea2dd&text=" + searchFor + "&per_page=50&page=" + pagecounter + "&format=json&nojsoncallback=1")
   const data = await response.json()
   console.log(data.photos);
+
+  //const obj = JSON.parse(response);
+  document.getElementById("h2").innerText =  data.photos.total + " photos on '" + searchFor + "' were found " ;
+  document.getElementById("pages").innerText = "Page " + pagecounter + "/" + data.photos.pages;
+  
 
   for (let photo of data.photos.photo){
     
@@ -25,17 +31,12 @@ btn.addEventListener("click", async function(){
     const img = document.createElement("img")
     img.src = url;
     img.setAttribute("class", "pictures");
+    //img.setAttribute("id",  ImgIndex)
     img.setAttribute("onClick", "OpenImg();currentImg(" + ImgIndex + ")");
     const gallary = document.getElementById("gallary");
     gallary.appendChild(img);
 
     var next = document.getElementsByClassName('pictures');
-    for (var i = 0; i < next.length; i++) {
-        if(i > 20)
-        {
-        next[i].style.display = 'none';
-        }
-    }
     ImgIndex++;
 
 
@@ -52,8 +53,16 @@ btn.addEventListener("click", async function(){
     divtag.appendChild(img2)
 
   }
-});
+};
 
+btn.addEventListener("click", async function(){
+    pagecounter = 1;
+    ApiSearch();
+
+  //const dlt = document.getElementsByTagName("img")
+  
+
+});
 
 function OpenImg(){
 
@@ -70,26 +79,20 @@ function CloseImg(){
 let counter = 1;
 
  function PrevPage(){
-   counter--;
+    pagecounter--;
    
-   if(counter < 1){
+   if(pagecounter < 1){
     swal("Sorry!", "...you are already on the first page");
-    counter = 1;
+    pagecounter = 1;
    }
-   console.log(counter)
-   SetValues(counter);
+   ApiSearch();
+   
 }
 
  function NextPage(){
-  counter++; 
-
-  if(counter > 4){
-      swal("Sorry!", "...there are no more pages");
-      counter = 4;
-  }
-  console.log(counter)
-  SetValues(counter);
-
+    console.log(pagecounter)
+    pagecounter++;
+    ApiSearch();
 
 }
 

@@ -24,6 +24,7 @@
     color: rgb(179, 179, 179);
     padding-top: 2rem;
 }
+
 .pictures{
     
     padding: 0.2rem;
@@ -183,6 +184,18 @@ background-color: #5b1364;
       text-align: center;
       font-size: 1.4rem;
   }
-  
+  #h2{
+    text-align: center;
+    font-size: 0.7rem;
+    font-style: italic;
+    color: rgba(0, 0, 0, 0.459);
+  }
+  #pages{
+    text-align: center;
+    font-size: 0.8rem;
+    font-style: italic;
+    color: rgba(0, 0, 0, 0.459);
+
+  }
   
 
