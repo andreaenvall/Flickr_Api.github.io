@@ -11,10 +11,12 @@ async function ApiSearch() {
     while (images.length > 0) {
         images[0].parentNode.removeChild(images[0]);
     }
-
     let searchFor = document.forms["myForm"]["input"].value;
-    const response = await fetch("https://api.flickr.com/services/rest?method=flickr.photos.search&api_key=8f0ae8840db405a70f58e25bd6cea2dd&text=" + searchFor + "&per_page=30&page=" + pagecounter + "&format=json&nojsoncallback=1");
+
+    let number = document.forms["myForm"]["input2"].value;
+    const response = await fetch("https://api.flickr.com/services/rest?method=flickr.photos.search&api_key=8f0ae8840db405a70f58e25bd6cea2dd&text=" + searchFor + "&per_page=" + number + "&page=" + pagecounter + "&format=json&nojsoncallback=1");
     const data = await response.json();
+    console.log(data.photos)
    
     document.getElementById("h2").innerText = data.photos.total + " photos on '" + searchFor + "' were found ";
     document.getElementById("pages").innerText = "Page " + pagecounter + "/" + data.photos.pages;
@@ -56,6 +58,7 @@ for(let i = 0; i < imgarray.length; i++){
         img.addEventListener("click", function() {
             let imgModal = document.getElementById(i);
             let src = imgModal.getAttribute("src");
+            src = src.substring(0,src.length-4) + "_c.jpg"
             console.log(src);
             document.getElementById("modalid").setAttribute("src",src);
             
