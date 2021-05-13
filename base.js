@@ -3,6 +3,7 @@ let ImgIndex = 0;
 let pagecounter = 1;
 let imgarray = [];
 let imgzise = "m";
+let sumpages = 0;
 
 CreateImg()
 
@@ -39,6 +40,7 @@ async function ApiSearch() {
    
     document.getElementById("h2").innerText = data.photos.total + " photos on '" + searchFor + "' were found ";
     document.getElementById("pages").innerText = "Page " + pagecounter + "/" + data.photos.pages;
+    sumpages = data.photos.pages;
 
 
 
@@ -118,6 +120,10 @@ function PrevPage() {
 function NextPage() {
     console.log(pagecounter)
     pagecounter++;
+    if (pagecounter > sumpages) {
+        swal("Sorry!", "...you there are no more pages");
+        pagecounter = sumpages;
+    }
     ApiSearch();
 
 }
