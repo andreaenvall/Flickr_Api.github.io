@@ -2,6 +2,7 @@ const btn = document.querySelector(".btn")
 let ImgIndex = 0;
 let pagecounter = 1;
 let imgarray = [];
+let imgzise = "m";
 
 CreateImg()
 
@@ -12,14 +13,33 @@ async function ApiSearch() {
         images[0].parentNode.removeChild(images[0]);
     }
     let searchFor = document.forms["myForm"]["input"].value;
+    var selectedValue = document.getElementById("imgsize").value;
 
+    if(selectedValue == "Thumbnail"){
+        imgzise = "t";
+    }
+    else if(selectedValue == "Medium"){
+        imgzise = "n";
+
+    }
+    else if(selectedValue == "Large"){
+        imgzise = "c";
+    }
+    else if(selectedValue == "Small"){
+        imgzise = "m";
+    }
     let number = document.forms["myForm"]["input2"].value;
+    if(searchFor === ""){
+        swal("Sorry!", "the input can not be emty.", "warning");
+    }
+
     const response = await fetch("https://api.flickr.com/services/rest?method=flickr.photos.search&api_key=8f0ae8840db405a70f58e25bd6cea2dd&text=" + searchFor + "&per_page=" + number + "&page=" + pagecounter + "&format=json&nojsoncallback=1");
     const data = await response.json();
     console.log(data.photos)
    
     document.getElementById("h2").innerText = data.photos.total + " photos on '" + searchFor + "' were found ";
     document.getElementById("pages").innerText = "Page " + pagecounter + "/" + data.photos.pages;
+
 
 
     for (let photo of data.photos.photo) {
@@ -29,9 +49,9 @@ async function ApiSearch() {
         const id = photo.id;
         const secret = photo.secret;
 
-        console.log(farmId);
+       
 
-        const url = 'https://farm' + farmId + '.staticflickr.com/' + serverId + '/' + id + '_' + secret + '.jpg';
+        const url = 'https://farm' + farmId + '.staticflickr.com/' + serverId + '/' + id + '_' + secret + '_' + imgzise + '.jpg';
         imgarray.push(url);
         
     }
@@ -58,9 +78,10 @@ for(let i = 0; i < imgarray.length; i++){
         img.addEventListener("click", function() {
             let imgModal = document.getElementById(i);
             let src = imgModal.getAttribute("src");
-            src = src.substring(0,src.length-4) + "_c.jpg"
+            src = src.substring(0,src.length-5) + "z.jpg"
             console.log(src);
             document.getElementById("modalid").setAttribute("src",src);
+            
             
             OpenImg();
 
@@ -115,11 +136,11 @@ function ImgModal(index) {
 }
 
 
-/*window.onload = function () {
+window.onload = function () {
     setTimeout(function () {
         document.getElementById('popup').style.display = 'block';
     }, 20000);
-}*/
+}
 
 function ClosePopUp() {
     document.getElementById('popup').style.display = 'none';

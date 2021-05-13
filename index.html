@@ -16,8 +16,19 @@
          <p>Join the Flickr community, home to tens of billions of photos and 2 million groups.</p>
     <form id="myForm" method="GET">
         <input type="text" id="input" name="input" placeholder="Search here">
-        <label for="photos">How many photos per page?</label><br>
+        <article class="rubrik">
+        <label for="photos" >Photos per page?</label>
+        <label for="photos">Img size? </label><br>
+      </article>
+        <div class="values">
         <input type="text" id="input2" name="input2" placeholder="ex: 40">
+                  <select id="imgsize" name="imggsize">
+                    <option value="Small">Small</option>
+                    <option value="Thumbnail">Thumbnail</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Large">Large</option>
+                  </select>
+            </div>
     </form><br>
     
 
