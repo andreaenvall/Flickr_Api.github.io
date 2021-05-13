@@ -32,6 +32,10 @@ async function ApiSearch() {
     let number = document.forms["myForm"]["input2"].value;
     if(searchFor === ""){
         swal("Sorry!", "the input can not be emty.", "warning");
+        document.getElementById("btn_next").style.display = 'none';
+        document.getElementById("h2").innerText = "";
+        document.getElementById("pages").innerText = "";
+
     }
 
     const response = await fetch("https://api.flickr.com/services/rest?method=flickr.photos.search&api_key=8f0ae8840db405a70f58e25bd6cea2dd&text=" + searchFor + "&per_page=" + number + "&page=" + pagecounter + "&format=json&nojsoncallback=1");
@@ -41,6 +45,12 @@ async function ApiSearch() {
     document.getElementById("h2").innerText = data.photos.total + " photos on '" + searchFor + "' were found ";
     document.getElementById("pages").innerText = "Page " + pagecounter + "/" + data.photos.pages;
     sumpages = data.photos.pages;
+    if(pagecounter > 0 ){
+        document.getElementById("btn_next").style.display = 'flex';
+    }
+    else if(data.photos.pages == 0){
+        document.getElementById("btn_next").style.display = 'none';
+    }
 
 
 
