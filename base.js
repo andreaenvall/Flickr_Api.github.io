@@ -147,8 +147,8 @@ window.onload = function () {
         document.getElementById('popup').style.display = 'block';
     }, 20000);
 }*/
-
+/*
 function ClosePopUp() {
     document.getElementById('popup').style.display = 'none';
-}
+}*/
 
