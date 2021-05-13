@@ -141,12 +141,12 @@ function ImgModal(index) {
     slides[index].style.display = "block";
 }
 
-
+/*
 window.onload = function () {
     setTimeout(function () {
         document.getElementById('popup').style.display = 'block';
     }, 20000);
-}
+}*/
 
 function ClosePopUp() {
     document.getElementById('popup').style.display = 'none';
