@@ -48,7 +48,7 @@ async function ApiSearch() {
     if(pagecounter > 0 ){
         document.getElementById("btn_next").style.display = 'flex';
     }
-    else if(data.photos.pages == 0){
+    else if(data.photos.pages == 1){
         document.getElementById("btn_next").style.display = 'none';
     }
 
